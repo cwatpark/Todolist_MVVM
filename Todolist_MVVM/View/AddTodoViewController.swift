@@ -2,9 +2,6 @@
 import UIKit
 import RxSwift
 
-//protocol listProtoDelegate {
-//    func getlistProto(list:TodolistViewModel?)
-//}
 
 class AddTodoViewController: UIViewController {
     
@@ -31,11 +28,6 @@ class AddTodoViewController: UIViewController {
             
             addVM.addItem(item: todo)
             
-            //Delegate?.getlistProto(list: listVM)
-            
-            //print(name.last ?? "")
-            
-            //self.dismiss(animated: true, completion: nil)
             self.navigationController?.popViewController(animated: true)
         }else{
             print("Can't Add List")

@@ -28,23 +28,10 @@ class TodoTableViewController: UITableViewController {
         return cell
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "segAdd"{
-//            let destinationVC = segue.destination as! AddTodoViewController
-//            destinationVC.Delegate = self
-//        }
-//    }
-    
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         let addVC = self.storyboard?.instantiateViewController(withIdentifier: "addStoryboard") as! AddTodoViewController
-    
         self.navigationController?.pushViewController(addVC, animated: true)
-    }
-    
-    func getlistProto(list: TodolistViewModel?) {
-        print("Hello Protocol")
-        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
