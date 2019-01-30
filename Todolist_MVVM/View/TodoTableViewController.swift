@@ -3,7 +3,7 @@
 import UIKit
 import RxSwift
 
-class TodoTableViewController: UITableViewController,listProtoDelegate {
+class TodoTableViewController: UITableViewController {
     
     private let todoList: TodolistViewModel = .init()
     
@@ -12,7 +12,6 @@ class TodoTableViewController: UITableViewController,listProtoDelegate {
         self.title = "To Do List"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-    
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -29,15 +28,26 @@ class TodoTableViewController: UITableViewController,listProtoDelegate {
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segAdd"{
-            let destinationVC = segue.destination as! AddTodoViewController
-            destinationVC.Delegate = self
-        }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "segAdd"{
+//            let destinationVC = segue.destination as! AddTodoViewController
+//            destinationVC.Delegate = self
+//        }
+//    }
+    
+    
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        let addVC = self.storyboard?.instantiateViewController(withIdentifier: "addStoryboard") as! AddTodoViewController
+    
+        self.navigationController?.pushViewController(addVC, animated: true)
     }
     
     func getlistProto(list: TodolistViewModel?) {
         print("Hello Protocol")
+        tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
     

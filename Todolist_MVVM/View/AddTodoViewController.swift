@@ -2,9 +2,9 @@
 import UIKit
 import RxSwift
 
-protocol listProtoDelegate {
-    func getlistProto(list:TodolistViewModel?)
-}
+//protocol listProtoDelegate {
+//    func getlistProto(list:TodolistViewModel?)
+//}
 
 class AddTodoViewController: UIViewController {
     
@@ -12,7 +12,7 @@ class AddTodoViewController: UIViewController {
     
     var addVM:AddTodoViewModel = .init()
     
-    var Delegate:listProtoDelegate?
+    //var Delegate:listProtoDelegate?
     
     @IBOutlet weak var addTextfield: UITextField!
     
@@ -31,12 +31,12 @@ class AddTodoViewController: UIViewController {
             
             addVM.addItem(item: todo)
             
-            Delegate?.getlistProto(list: listVM)
+            //Delegate?.getlistProto(list: listVM)
             
             //print(name.last ?? "")
             
-            self.dismiss(animated: true, completion: nil)
-            //self.navigationController?.popViewController(animated: true)
+            //self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
         }else{
             print("Can't Add List")
         }
