@@ -9,6 +9,7 @@ protocol listProtoDelegate {
 class AddTodoViewController: UIViewController {
     
     var listVM:TodolistViewModel?
+    
     var addVM:AddTodoViewModel = .init()
     
     var Delegate:listProtoDelegate?
