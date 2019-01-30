@@ -9,6 +9,8 @@ protocol listProtoDelegate {
 class AddTodoViewController: UIViewController {
     
     var listVM:TodolistViewModel?
+    var addVM:AddTodoViewModel = .init()
+    
     var Delegate:listProtoDelegate?
     
     @IBOutlet weak var addTextfield: UITextField!
@@ -25,14 +27,12 @@ class AddTodoViewController: UIViewController {
     @IBAction func addButtonPressed(_ sender: UIButton) {
         
         if let todo = addTextfield.text {
-            var name = UserDefaults.standard.array(forKey: "Array") as! [String]
-            name.append(todo)
-            UserDefaults.standard.set(name, forKey: "Array")
             
-    
+            addVM.addItem(item: todo)
+            
             Delegate?.getlistProto(list: listVM)
             
-            print(name.last ?? "")
+            //print(name.last ?? "")
             
             self.dismiss(animated: true, completion: nil)
             //self.navigationController?.popViewController(animated: true)

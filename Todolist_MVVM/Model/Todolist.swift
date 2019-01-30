@@ -10,7 +10,6 @@ import Foundation
 
 class Todolist {
     
-    
     func getTodoList() -> [String] {
         let names = UserDefaults.standard.array(forKey: "Array") as! [String]
         return names
